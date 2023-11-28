@@ -17,6 +17,7 @@ namespace ATEX2023_2
             InitializeComponent();
         }
 
+        #region backend
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmModerador frmModerador = new FrmModerador();
@@ -38,14 +39,15 @@ namespace ATEX2023_2
                 user.Escola = txtEscola.Text;
                 user.AnoEscolar = rdbSegundo.Checked?2:rdbTerceiro.Checked?3:1;
                 user.Idade = rdb8.Checked?8:rdb9.Checked?9:7;
-                user.incluirDados();
+                Program.idUser = user.incluirDados();
                 MessageBox.Show($"Bem vindo, {txtNome.Text}!");
                 this.Hide();
                 new FrmInicio().ShowDialog();
                 this.Close();
             }
-            
         }
+        #endregion
+
         #region frontEnd
         private void btnRegistrar_MouseHover(object sender, EventArgs e)
         {
